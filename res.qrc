@@ -2,5 +2,7 @@
     <qresource prefix="/">
         <file alias="style">res/style.css</file>
         <file alias="tray">res/tray.png</file>
+        <file alias="return">res/return.png</file>
+        <file alias="setting">res/setting.png</file>
     </qresource>
 </RCC>

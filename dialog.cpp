@@ -24,6 +24,8 @@ Dialog::Dialog(QWidget *parent) :
     connect(m_tray, &SystemTray::sigExit, [this] { close(); });
     m_tray->show();
 
+    ui->pbReturn->setIcon(QIcon(":/return"));
+    ui->pbSetting->setIcon(QIcon(":/setting"));
     this->installEventFilter(this);
 }
 

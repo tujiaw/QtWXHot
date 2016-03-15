@@ -1,6 +1,7 @@
 #include "articleitemwidget.h"
 #include "httpimagelabel.h"
 #include <QtWidgets>
+#include <QDebug>
 
 ArticleItemWidget::ArticleItemWidget(QWidget *parent) : QWidget(parent)
 {

@@ -13,3 +13,7 @@ QLabel[qssname="article_title"] {
     font-size:15px;
     font-weight:bold;
 }
+
+QPushButton {
+    background:transparent;
+}
