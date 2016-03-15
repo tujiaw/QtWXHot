@@ -1,9 +1,11 @@
 #include "dialog.h"
 #include "ui_dialog.h"
 #include "articleitemwidget.h"
+#include "systemtray.h"
+#include <QDebug>
 
 Dialog::Dialog(QWidget *parent) :
-    QDialog(parent),
+    DropWidget(parent),
     ui(new Ui::Dialog)
 {
     ui->setupUi(this);
@@ -16,6 +18,13 @@ Dialog::Dialog(QWidget *parent) :
     connect(ui->listWidget, &QListWidget::itemClicked, this, &Dialog::slotListWidgetItemClicked);
 
     ui->pbReturn->setVisible(false);
+    ui->labelTitle->setProperty("qssname", "article_title");
+
+    m_tray = new SystemTray(this);
+    connect(m_tray, &SystemTray::sigExit, [this] { close(); });
+    m_tray->show();
+
+    this->installEventFilter(this);
 }
 
 Dialog::~Dialog()
@@ -58,4 +67,15 @@ void Dialog::slotListWidgetItemClicked(QListWidgetItem *item)
         ui->webView->load(url);
     }
     ui->stackedWidget->setCurrentIndex(1);
+}
+
+bool Dialog::eventFilter(QObject *object, QEvent *event)
+{
+    if (event->type() == QEvent::KeyRelease) {
+        QKeyEvent *keyEvent = static_cast<QKeyEvent*>(event);
+        if (keyEvent->key() == Qt::Key_Escape) {
+            close();
+        }
+    }
+    return false;
 }

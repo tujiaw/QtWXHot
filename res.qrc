@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="style">res/style.css</file>
+        <file alias="tray">res/tray.png</file>
+    </qresource>
+</RCC>

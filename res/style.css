@@ -1,0 +1,15 @@
+*{
+    font-size:13px;
+    font-family:"Microsoft YaHei";
+    color:#000000;
+}
+
+QLabel[qssname="article_item_desc"] {
+    font-size:14px;
+    font-weight:bold;
+}
+
+QLabel[qssname="article_title"] {
+    font-size:15px;
+    font-weight:bold;
+}

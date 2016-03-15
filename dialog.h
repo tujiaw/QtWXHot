@@ -1,8 +1,8 @@
 #ifndef DIALOG_H
 #define DIALOG_H
 
-#include <QDialog>
 #include "article.h"
+#include "dropwidget.h"
 
 namespace Ui {
 class Dialog;
@@ -10,7 +10,8 @@ class Dialog;
 
 class ArticleNet;
 class QListWidgetItem;
-class Dialog : public QDialog
+class SystemTray;
+class Dialog : public DropWidget
 {
     Q_OBJECT
 
@@ -23,9 +24,13 @@ private slots:
     void slotUpdateArticleList(const ArticleResult &data);
     void slotListWidgetItemClicked(QListWidgetItem *item);
 
+protected:
+    bool eventFilter(QObject *, QEvent *);
+
 private:
     Ui::Dialog *ui;
     ArticleNet *m_articleNet;
+    SystemTray *m_tray;
 };
 
 #endif // DIALOG_H

@@ -17,12 +17,19 @@ SOURCES += main.cpp\
     article.cpp \
     json.cpp \
     articleitemwidget.cpp \
-    httpimagelabel.cpp
+    httpimagelabel.cpp \
+    dropwidget.cpp \
+    systemtray.cpp
 
 HEADERS  += dialog.h \
     article.h \
     json.h \
     articleitemwidget.h \
-    httpimagelabel.h
+    httpimagelabel.h \
+    dropwidget.h \
+    systemtray.h
 
 FORMS    += dialog.ui
+
+RESOURCES += \
+    res.qrc
