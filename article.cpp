@@ -48,14 +48,13 @@ void ArticleNet::request(const ArticleRequest &data)
 
 void ArticleNet::request(int num, const QString &word, int rand, int page)
 {
+    qDebug() << word;
     ArticleRequest arg;
     arg.apikey = APIKEY;
     arg.num = num;
     arg.page = page;
     arg.rand = rand;
-    QByteArray arr = word.toLocal8Bit();
-    arg.word = QString(arr.toPercentEncoding());
-    qDebug() << "word:" << arg.word;
+    arg.word = word;
     request(arg);
 }
 

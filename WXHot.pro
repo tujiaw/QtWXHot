@@ -20,7 +20,8 @@ SOURCES += main.cpp\
     articleitemwidget.cpp \
     httpimagelabel.cpp \
     dropwidget.cpp \
-    systemtray.cpp
+    systemtray.cpp \
+    settingwidget.cpp
 
 HEADERS  += dialog.h \
     article.h \
@@ -28,9 +29,11 @@ HEADERS  += dialog.h \
     articleitemwidget.h \
     httpimagelabel.h \
     dropwidget.h \
-    systemtray.h
+    systemtray.h \
+    settingwidget.h
 
-FORMS    += dialog.ui
+FORMS    += dialog.ui \
+    settingwidget.ui
 
 RESOURCES += \
     res.qrc
