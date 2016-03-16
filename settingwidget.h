@@ -2,6 +2,7 @@
 #define SETTINGWIDGET_H
 
 #include <QWidget>
+#include <QSettings>
 
 namespace Ui {
 class SettingWidget;
@@ -15,8 +16,10 @@ public:
     explicit SettingWidget(QWidget *parent = 0);
     ~SettingWidget();
 
-    int getCount() const;
-    QString getKeyword() const;
+    void initData();
+    int getCount();
+    QString getKeyword();
+    QString getBackgroundPath();
 
 signals:
     void sigBackgroundLoad(const QString &path);
@@ -26,6 +29,7 @@ private slots:
 
 private:
     Ui::SettingWidget *ui;
+    QSettings m_setting;
 };
 
 #endif // SETTINGWIDGET_H

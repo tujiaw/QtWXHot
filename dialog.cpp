@@ -40,14 +40,14 @@ Dialog::Dialog(QWidget *parent) :
     ui->pbReturn->setIcon(QIcon(":/return"));
     ui->pbSetting->setIcon(QIcon(":/setting"));
 
-    this->setBackground(QImage(":/background"));
     this->installEventFilter(this);
 
-    m_articleNet->request(10, QStringLiteral(""));
-
-    QString x = "盗墓笔记";
-    QString y = QStringLiteral("盗墓笔记");
-    qDebug() << "xxxxx:" << x << "," << y;
+    QImage background(ui->settingWidget->getBackgroundPath());
+    if (background.isNull()) {
+        background.load(":/background");
+    }
+    this->setBackground(background);
+    m_articleNet->request(ui->settingWidget->getCount(), ui->settingWidget->getKeyword());
 }
 
 Dialog::~Dialog()

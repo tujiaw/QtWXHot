@@ -8,5 +8,6 @@
         <file alias="default_item">res/default_item.png</file>
         <file alias="chinese">chinese.ts</file>
         <file>chinese.qm</file>
+        <file alias="exit">res/exit.png</file>
     </qresource>
 </RCC>

@@ -4,17 +4,24 @@
 
 SettingWidget::SettingWidget(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::SettingWidget)
+    ui(new Ui::SettingWidget),
+    m_setting("tujiaw", "WXHot")
 {
     ui->setupUi(this);
     ui->sbCount->setValue(10);
     ui->sbCount->setRange(10, 50);
     ui->sbCount->setSingleStep(5);
     ui->leKeyword->setText("");
-    ui->leBackgroundPath->setText("");
+    ui->pbBackgroundLoad->setText(tr("load"));
+
+    QPixmap exitPixmap(":/exit");
+    ui->pbExit->setFixedSize(exitPixmap.size());
+    ui->pbExit->setIcon(exitPixmap);
 
     connect(ui->pbBackgroundLoad, &QPushButton::clicked, this, &SettingWidget::slotBackgroundLoad);
     connect(ui->pbExit, &QPushButton::clicked, [this] { qApp->quit(); });
+
+    initData();
 }
 
 SettingWidget::~SettingWidget()
@@ -22,20 +29,47 @@ SettingWidget::~SettingWidget()
     delete ui;
 }
 
-int SettingWidget::getCount() const
+void SettingWidget::initData()
 {
-    return ui->sbCount->value();
+    int count = m_setting.value("ArticleCount").toInt();
+    QString keyword = m_setting.value("ArticleKeyword").toString();
+    QString path = m_setting.value("BackgroundPath").toString();
+
+    ui->sbCount->setValue(count);
+    ui->leKeyword->setText(keyword);
+
+    QFontMetrics fm = ui->pbBackgroundLoad->fontMetrics();
+    QString elidedText = fm.elidedText(path, Qt::ElideMiddle, ui->pbBackgroundLoad->width()-30);
+    ui->pbBackgroundLoad->setText(elidedText);
 }
 
-QString SettingWidget::getKeyword() const
+int SettingWidget::getCount()
 {
-    return ui->leKeyword->text().trimmed();
+    int count = ui->sbCount->value();
+    m_setting.setValue("ArticleCount", count);
+    return count;
+}
+
+QString SettingWidget::getKeyword()
+{
+    QString keyword = ui->leKeyword->text().trimmed();
+    m_setting.setValue("ArticleKeyword", keyword);
+    return keyword;
+}
+
+QString SettingWidget::getBackgroundPath()
+{
+    return m_setting.value("BackgroundPath").toString();
 }
 
 void SettingWidget::slotBackgroundLoad()
 {
     QString path = QFileDialog::getOpenFileName(this, "", "", "Images (*.png *.jpg)");
     if (!path.isEmpty()) {
+        QFontMetrics fm = ui->pbBackgroundLoad->fontMetrics();
+        QString elidedText = fm.elidedText(path, Qt::ElideMiddle, ui->pbBackgroundLoad->width());
+        ui->pbBackgroundLoad->setText(elidedText);
+        m_setting.setValue("BackgroundPath", path);
         emit sigBackgroundLoad(path);
     }
 }
