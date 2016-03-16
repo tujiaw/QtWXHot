@@ -4,5 +4,9 @@
         <file alias="tray">res/tray.png</file>
         <file alias="return">res/return.png</file>
         <file alias="setting">res/setting.png</file>
+        <file alias="background">res/BingWallpaper-2016-03-15.jpg</file>
+        <file alias="default_item">res/default_item.png</file>
+        <file alias="chinese">chinese.ts</file>
+        <file>chinese.qm</file>
     </qresource>
 </RCC>

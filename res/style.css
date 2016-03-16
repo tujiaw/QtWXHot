@@ -10,10 +10,16 @@ QLabel[qssname="article_item_desc"] {
 }
 
 QLabel[qssname="article_title"] {
-    font-size:15px;
+    font-size:16px;
     font-weight:bold;
 }
 
 QPushButton {
     background:transparent;
 }
+
+QListWidget {
+    border-radius:3px;
+    outline:0px;
+}
+

@@ -6,7 +6,7 @@
 ArticleItemWidget::ArticleItemWidget(QWidget *parent) : QWidget(parent)
 {
     m_image = new HttpImageLabel(this);
-    m_image->setFixedSize(50, 50);
+    m_image->setFixedSize(60, 50);
     m_desc = new QLabel(this);
     m_desc->setProperty("qssname", "article_item_desc");
     m_title = new QLabel(this);

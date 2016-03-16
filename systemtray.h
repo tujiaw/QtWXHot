@@ -13,6 +13,7 @@ public:
     void initMenu();
 
 signals:
+    void sigShow();
     void sigExit();
 
 private:

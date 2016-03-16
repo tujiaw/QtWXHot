@@ -21,11 +21,24 @@ Dialog::Dialog(QWidget *parent) :
     ui->labelTitle->setProperty("qssname", "article_title");
 
     m_tray = new SystemTray(this);
-    connect(m_tray, &SystemTray::sigExit, [this] { close(); });
+    connect(m_tray, &SystemTray::activated, [this] (QSystemTrayIcon::ActivationReason reason) {
+        if (QSystemTrayIcon::Trigger == reason) {
+            if (this->isVisible()) {
+                hide();
+            } else {
+                show();
+            }
+        }
+    });
+    connect(m_tray, &SystemTray::sigShow, [this] { show(); });
+    connect(m_tray, &SystemTray::sigExit, [this] { qApp->quit(); });
     m_tray->show();
 
+    ui->labelTitle->setText(tr("weixin article"));
     ui->pbReturn->setIcon(QIcon(":/return"));
     ui->pbSetting->setIcon(QIcon(":/setting"));
+
+    this->setBackground(QImage(":/background"));
     this->installEventFilter(this);
 }
 
@@ -76,7 +89,7 @@ bool Dialog::eventFilter(QObject *object, QEvent *event)
     if (event->type() == QEvent::KeyRelease) {
         QKeyEvent *keyEvent = static_cast<QKeyEvent*>(event);
         if (keyEvent->key() == Qt::Key_Escape) {
-            close();
+            this->hide();
         }
     }
     return false;
