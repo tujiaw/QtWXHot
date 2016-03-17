@@ -15,7 +15,7 @@ SettingWidget::SettingWidget(QWidget *parent) :
     ui->pbBackgroundLoad->setText(tr("load"));
 
     QPixmap exitPixmap(":/exit");
-    ui->pbExit->setFixedSize(exitPixmap.size());
+    exitPixmap = exitPixmap.scaled(ui->pbExit->size());
     ui->pbExit->setIcon(exitPixmap);
 
     connect(ui->pbBackgroundLoad, &QPushButton::clicked, this, &SettingWidget::slotBackgroundLoad);

@@ -16,6 +16,11 @@ QLabel[qssname="article_title"] {
 
 QPushButton {
     background:transparent;
+    border:0px;
+}
+
+QPushButton::hover {
+    background:rgb(255, 0, 0, 150);
 }
 
 QListWidget {
