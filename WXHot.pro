@@ -12,28 +12,32 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = WXHot
 TEMPLATE = app
 
+INCLUDEPATH += main \
+        model \
+        util \
+        view
 
-SOURCES += main.cpp\
-        dialog.cpp \
-    article.cpp \
-    json.cpp \
-    articleitemwidget.cpp \
-    httpimagelabel.cpp \
-    dropwidget.cpp \
-    systemtray.cpp \
-    settingwidget.cpp
+SOURCES += view/articleitemwidget.cpp \
+    view/dropwidget.cpp \
+    view/httpimagelabel.cpp \
+    view/settingwidget.cpp \
+    main/dialog.cpp \
+    main/main.cpp \
+    main/systemtray.cpp \
+    model/article.cpp \
+    util/json.cpp
 
-HEADERS  += dialog.h \
-    article.h \
-    json.h \
-    articleitemwidget.h \
-    httpimagelabel.h \
-    dropwidget.h \
-    systemtray.h \
-    settingwidget.h
+HEADERS  += view/articleitemwidget.h \
+    view/dropwidget.h \
+    view/httpimagelabel.h \
+    view/settingwidget.h \
+    main/dialog.h \
+    main/systemtray.h \
+    model/article.h \
+    util/json.h
 
-FORMS    += dialog.ui \
-    settingwidget.ui
+FORMS    += main/dialog.ui \
+    view/settingwidget.ui
 
 RESOURCES += \
     res.qrc
