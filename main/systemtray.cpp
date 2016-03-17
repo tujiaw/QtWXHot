@@ -4,7 +4,7 @@
 SystemTray::SystemTray(QObject *parent)
     : QSystemTrayIcon(parent)
 {
-    this->setIcon(QPixmap(":/tray").scaled(50, 50));
+    this->setIcon(QPixmap(":/tray.png").scaled(50, 50));
     initMenu();
 }
 

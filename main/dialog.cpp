@@ -37,14 +37,14 @@ Dialog::Dialog(QWidget *parent) :
     m_tray->show();
 
     ui->labelTitle->setText(tr("weixin article"));
-    ui->pbReturn->setIcon(QIcon(":/return"));
-    ui->pbSetting->setIcon(QIcon(":/setting"));
+    ui->pbReturn->setIcon(QIcon(":/return.png"));
+    ui->pbSetting->setIcon(QIcon(":/setting.png"));
 
     this->installEventFilter(this);
 
     QImage background(ui->settingWidget->getBackgroundPath());
     if (background.isNull()) {
-        background.load(":/background");
+        background.load(":/background.png");
     }
     this->setBackground(background);
     m_articleNet->request(ui->settingWidget->getCount(), ui->settingWidget->getKeyword());
@@ -82,17 +82,6 @@ void Dialog::slotUpdateArticleList(const ArticleResult &data)
 void Dialog::slotListWidgetItemClicked(QListWidgetItem *item)
 {
     ui->stackedWidget->setCurrentIndex(1);
-}
-
-#include <QTextCodec>
-
-inline QString GBK2UTF8(const QString &inStr)
-{
-    QTextCodec *gbk = QTextCodec::codecForName("GB18030");
-    QTextCodec *utf8 = QTextCodec::codecForName("UTF-8");
-
-    QString g2u = gbk->toUnicode(gbk->fromUnicode(inStr));			  // gbk  convert utf8
-    return g2u;
 }
 
 void Dialog::slotStackedCurrentChanged(int index)

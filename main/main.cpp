@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     a.setQuitOnLastWindowClosed(false);
 
-    QFile qss(":/style");
+    QFile qss(":/style.css");
     if (qss.open(QIODevice::ReadOnly | QIODevice::Text)) {
         a.setStyleSheet(qss.readAll());
     }

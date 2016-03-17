@@ -5,7 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui network webkitwidgets
-TRANSLATIONS = chinese.ts
+TRANSLATIONS = res/chinese.ts
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -39,5 +39,4 @@ HEADERS  += view/articleitemwidget.h \
 FORMS    += main/dialog.ui \
     view/settingwidget.ui
 
-RESOURCES += \
-    res.qrc
+RESOURCES += res/res.qrc

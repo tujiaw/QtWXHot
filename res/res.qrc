@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>chinese.qm</file>
+        <file>chinese.ts</file>
+        <file>default_item.png</file>
+        <file>exit.png</file>
+        <file>res.qrc</file>
+        <file>return.png</file>
+        <file>setting.png</file>
+        <file>style.css</file>
+        <file>tray.png</file>
+        <file>background.png</file>
+    </qresource>
+</RCC>

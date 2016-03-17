@@ -14,7 +14,7 @@ SettingWidget::SettingWidget(QWidget *parent) :
     ui->leKeyword->setText("");
     ui->pbBackgroundLoad->setText(tr("load"));
 
-    QPixmap exitPixmap(":/exit");
+    QPixmap exitPixmap(":/exit.png");
     exitPixmap = exitPixmap.scaled(ui->pbExit->size());
     ui->pbExit->setIcon(exitPixmap);
 
