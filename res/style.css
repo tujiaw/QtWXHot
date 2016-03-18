@@ -20,11 +20,47 @@ QPushButton {
 }
 
 QPushButton::hover {
+    background:rgb(255, 0, 0, 100);
+}
+
+QPushButton::pressed {
     background:rgb(255, 0, 0, 150);
 }
 
 QListWidget {
     border-radius:3px;
     outline:0px;
+}
+
+QPushButton[qssname="link_button"] {
+    background:transparent;
+    color:rgb(0, 0, 0, 255);
+    font-size:13px;
+}
+QPushButton[qssname="link_button"]::hover {
+    color:rgb(51, 51, 51);
+}
+QPushButton[qssname="link_button"]::pressed {
+    color:rgb(0, 0, 0, 150);
+}
+QPushButton[qssname="link_button"]::disabled {
+    color:rgb(0, 0, 0, 255);
+}
+
+QPushButton[qssname="danger_button"] {
+    color:#fff;
+    background-color:#d9534f;
+    border-color:#d43f3a;
+    border-radius:3px;
+}
+
+QPushButton[qssname="danger_button"]::hover {
+    background-color:#c9302c;
+    border-color:#ac2925;
+}
+
+QPushButton[qssname="danger_button"]::pressed {
+    background-color:#ac2925;
+    border-color:#761c19;
 }
 

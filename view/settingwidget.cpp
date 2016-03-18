@@ -13,10 +13,9 @@ SettingWidget::SettingWidget(QWidget *parent) :
     ui->sbCount->setSingleStep(5);
     ui->leKeyword->setText("");
     ui->pbBackgroundLoad->setText(tr("load"));
-
-    QPixmap exitPixmap(":/exit.png");
-    exitPixmap = exitPixmap.scaled(ui->pbExit->size());
-    ui->pbExit->setIcon(exitPixmap);
+    ui->pbBackgroundLoad->setCursor(Qt::PointingHandCursor);
+    ui->pbBackgroundLoad->setProperty("qssname", "link_button");
+    ui->pbExit->setProperty("qssname", "danger_button");
 
     connect(ui->pbBackgroundLoad, &QPushButton::clicked, this, &SettingWidget::slotBackgroundLoad);
     connect(ui->pbExit, &QPushButton::clicked, [this] { qApp->quit(); });
