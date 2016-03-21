@@ -36,6 +36,7 @@ QPushButton[qssname="link_button"] {
     background:transparent;
     color:rgb(0, 0, 0, 255);
     font-size:13px;
+    text-align:left;
 }
 QPushButton[qssname="link_button"]::hover {
     color:rgb(51, 51, 51);

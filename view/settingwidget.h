@@ -21,6 +21,8 @@ public:
     QString getKeyword();
     QString getBackgroundPath();
 
+    void setBackgroundPath(const QString &path);
+
 signals:
     void sigBackgroundLoad(const QString &path);
 

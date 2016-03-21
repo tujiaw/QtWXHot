@@ -61,6 +61,12 @@ QString SettingWidget::getBackgroundPath()
     return m_setting.value("BackgroundPath").toString();
 }
 
+void SettingWidget::setBackgroundPath(const QString &path)
+{
+    m_setting.setValue("BackgroundPath", "");
+    ui->pbBackgroundLoad->setText(path);
+}
+
 void SettingWidget::slotBackgroundLoad()
 {
     QString path = QFileDialog::getOpenFileName(this, "", "", "Images (*.png *.jpg)");

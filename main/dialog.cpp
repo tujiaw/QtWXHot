@@ -45,6 +45,7 @@ Dialog::Dialog(QWidget *parent) :
     QImage background(ui->settingWidget->getBackgroundPath());
     if (background.isNull()) {
         background.load(":/background.png");
+        ui->settingWidget->setBackgroundPath(":/background.png");
     }
     this->setBackground(background);
     m_articleNet->request(ui->settingWidget->getCount(), ui->settingWidget->getKeyword());
