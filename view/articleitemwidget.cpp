@@ -10,6 +10,7 @@ ArticleItemWidget::ArticleItemWidget(QWidget *parent) : QWidget(parent)
     m_desc = new QLabel(this);
     m_desc->setProperty("qssname", "article_item_desc");
     m_title = new QLabel(this);
+    m_title->setProperty("qssname", "article_item_title");
 
     QVBoxLayout *vLayout = new QVBoxLayout();
     vLayout->setContentsMargins(0, 0, 0, 0);
